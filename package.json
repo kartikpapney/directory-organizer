@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.1"
+  },
+  "name": "organizer",
+  "version": "1.0.0",
+  "description": "\"This is a directory organizer\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kartik Papney",
+  "license": "ISC",
+  "bin": {
+    "organizer": "main.js"
+  }
+}
