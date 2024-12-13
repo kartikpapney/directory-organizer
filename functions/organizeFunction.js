@@ -30,7 +30,6 @@ function organizeFiles(src, des) {
         let isFile = fs.lstatSync(childrenAddress).isFile();
         if (isFile) {
             // 4. -> copy the files from directory and paste them to their corresponding folders in organize directory
-            // copyFileToDestination(src, des);
             const category = getCategory(childrenAddress);
             const categoryPath = path.join(des, category);
             if(!fs.existsSync(categoryPath)) fs.mkdirSync(categoryPath);
@@ -45,12 +44,14 @@ function copyFile(src, des) {
     const fileName = path.basename(src);
     const destOfFile = path.join(des, fileName);
     fs.copyFileSync(src, destOfFile);
+    // 5. -> delete the file
+    // Uncomment if you wan't to delete file from the unorganized folder
+    // fs.unlinkSync(src);
 }
 
 function getCategory(src) {
-    // get extension
+
     const extension = path.extname(src).slice(1);
-    // console.log(extension);
     for(var type in types) {
         if(types[type].includes(extension)) return type;
     }
